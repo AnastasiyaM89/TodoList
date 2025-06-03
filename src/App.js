@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export const App = () => {
+	const [todos, setTodos] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
 
-export default App;
+	useEffect(() => {
+		fetch('https://jsonplaceholder.typicode.com/todos')
+			.then((response) => response.json())
+			.then((data) => {
+				setTodos(data);
+			})
+			.finally(() => setIsLoading(false));
+	}, []);
+
+	if (isLoading) {
+		return <div>Загрузка...</div>;
+	}
+
+	return (
+		<div className="todo-list">
+			<h1>Список дел</h1>
+			<ul>
+				{todos.map((todo) => (
+					<li key={todo.id} className="todo-item">
+						{todo.title}
+					</li>
+				))}
+			</ul>
+		</div>
+	);
+};
