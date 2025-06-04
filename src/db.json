@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "title": "работа",
+      "completed": false,
+      "id": 1
+    },
+    {
+      "title": "дом",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "title": "уборка",
+      "completed": false,
+      "id": 3
+    }
+  ]
+}
