@@ -1,16 +1,10 @@
-.todo-list {
-	max-width: 600px;
-	margin: 20px auto;
+.app-container {
+	font-family: sans-serif;
 	padding: 20px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
 }
 
 .todo-item {
 	padding: 10px;
-	border-bottom: 1px solid #eee;
-}
-
-.todo-item:last-child {
-	border-bottom: none;
+	border: 1px solid #ccc;
+	margin-bottom: 5px;
 }
